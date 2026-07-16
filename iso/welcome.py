@@ -1,3 +1,4 @@
+import os
 import sys
 import subprocess
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
@@ -12,7 +13,7 @@ class WelcomeScreen(QMainWindow):
 
         self.setWindowTitle("Welcome to LupuS")
         self.setFixedSize(800, 500)
-        self.setWindowIcon(QIcon("favicon.png"))
+        self.setWindowIcon(QIcon("icons/lupus.png"))
         
         # Frameless Window
         self.setWindowFlags(Qt.WindowType.FramelessWindowHint)
@@ -38,7 +39,7 @@ class WelcomeScreen(QMainWindow):
             QWidget#MainContainer {
                 background-color: #121212;
                 border-radius: 15px;
-                border: 1px solid #333333;
+                border: 1px solid #00bcff;
             }
             QLabel#Title {
                 color: #00bcff;
@@ -64,26 +65,14 @@ class WelcomeScreen(QMainWindow):
                 background-color: #2C2C2C;
                 border: 1px solid #00bcff;
             }
-            QPushButton#PrimaryBtn {
-                background-color: #00bcff;
-                color: #000000;
-                font-weight: bold;
-            }
-            QPushButton#PrimaryBtn:hover {
-                background-color: #5ad4ff;
-            }
             QPushButton#CloseBtn {
                 background-color: transparent;
-                color: #555555;
                 border: none;
-                font-size: 18px;
-                font-weight: bold;
+                border-radius: 0;
                 min-width: 40px;
                 max-width: 40px;
                 padding: 5px;
-            }
-            QPushButton#CloseBtn:hover {
-                color: #ff4c4c;
+                margin-top: 9px;
             }
             QFrame#Separator {
                 background-color: #333333;
@@ -98,26 +87,45 @@ class WelcomeScreen(QMainWindow):
         self.oldPos = self.pos()
 
     def setup_ui(self):
+
+        # Separator
+        separator = QFrame()
+        separator.setObjectName("Separator")
+
         # Title Bar (for Close Button)
         title_bar = QHBoxLayout()
         title_bar.setContentsMargins(10, 10, 10, 0)
         title_bar.addStretch()
         
-        self.close_btn = QPushButton("✕")
+        self.close_btn = QPushButton()
+        self.close_btn.setIcon(QIcon("icons/close.png"))
         self.close_btn.setObjectName("CloseBtn")
         self.close_btn.setCursor(Qt.CursorShape.PointingHandCursor)
         self.close_btn.clicked.connect(self.close)
         title_bar.addWidget(self.close_btn)
-        
-        self.layout.addLayout(title_bar)
 
         # Content Container
         content_layout = QVBoxLayout()
         content_layout.setContentsMargins(50, 0, 50, 50)
         content_layout.setSpacing(20)
 
+        folder = os.path.dirname(os.path.abspath(__file__))
+        icon = os.path.join(folder, "icons/lupus.png")
+
         # Header Section
-        self.title_label = QLabel("LupuS")
+        self.title_label = QLabel()
+        self.title_label.setText(
+            f"<table border='0' cellpadding='0' cellspacing='0' align='center'>"
+            f"  <tr>"
+            f"    <td valign='middle'>"
+            f"      <img src='{icon}' width='100' height='100' />"
+            f"    </td>"
+            f"    <td valign='middle' style='padding-left: 12px;'>"
+            f"      LupuS"
+            f"    </td>"
+            f"  </tr>"
+            f"</table>"
+        )
         self.title_label.setObjectName("Title")
         self.title_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         
@@ -125,14 +133,17 @@ class WelcomeScreen(QMainWindow):
         self.subtitle_label.setObjectName("Subtitle")
         self.subtitle_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.subtitle_label.setWordWrap(True)
+        
+        self.layout.addLayout(title_bar)
+
+        content_layout.addWidget(separator)
+
+        content_layout.addWidget(separator)
 
         content_layout.addWidget(self.title_label)
-        content_layout.addWidget(self.subtitle_label)
 
-        # Separator
-        separator = QFrame()
-        separator.setObjectName("Separator")
         content_layout.addWidget(separator)
+        content_layout.addWidget(self.subtitle_label)
         
         content_layout.addSpacerItem(QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
 
@@ -141,32 +152,15 @@ class WelcomeScreen(QMainWindow):
         btn_layout.setSpacing(15)
         btn_layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
-        self.start_btn = QPushButton("Install")
-        self.start_btn.setObjectName("PrimaryBtn")
-        self.start_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.start_btn.clicked.connect(self.run_install)
-        
-        self.settings_btn = QPushButton("Website")
-        self.settings_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.settings_btn.clicked.connect(self.open_website)
-        
-        self.help_btn = QPushButton("GitHub")
-        self.help_btn.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.help_btn.clicked.connect(self.open_github)
+        self.install = QPushButton("Install")
+        self.install.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.install.clicked.connect(self.run_yali)
 
-        btn_layout.addWidget(self.start_btn)
-        btn_layout.addWidget(self.settings_btn)
-        btn_layout.addWidget(self.help_btn)
+        btn_layout.addWidget(self.install)
 
         content_layout.addLayout(btn_layout)
         
         content_layout.addSpacerItem(QSpacerItem(20, 20, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding))
-
-        # Footer
-        footer_label = QLabel("v1.0.0 | Powered by TeknoAnka")
-        footer_label.setStyleSheet("color: #555555; font-size: 12px;")
-        footer_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
-        content_layout.addWidget(footer_label)
 
         self.layout.addLayout(content_layout)
 
@@ -181,17 +175,11 @@ class WelcomeScreen(QMainWindow):
             self.move(self.x() + delta.x(), self.y() + delta.y())
             self.oldPos = event.globalPosition().toPoint()
 
-    def run_install(self):
+    def run_yali(self):
         try:
             subprocess.Popen(["yali"])
         except Exception as e:
             print(f"Error starting 'yali': {e}")
-
-    def open_website(self):
-        QDesktopServices.openUrl(QUrl("https://www.teknoanka.com"))
-
-    def open_github(self):
-        QDesktopServices.openUrl(QUrl("https://github.com/TeknoAnka"))
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
