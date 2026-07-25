@@ -1,6 +1,18 @@
-# LupuS Welcome Screen
+# LupuS Welcome
 
+### Dependencies
+- PyQt6
+
+## Commands
+
+### Install
 ```
 # LupuS
-sudo bash ./install.sh
+./install.sh install
+```
+
+### Uninstall
+```
+# LupuS
+./install.sh uninstall
 ```
