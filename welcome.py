@@ -157,10 +157,10 @@ class WelcomeScreen(QMainWindow):
         self.Kaptan.setCursor(Qt.CursorShape.PointingHandCursor)
         self.Kaptan.clicked.connect(self.open_kaptan)
 
-        self.Updater = QPushButton("PiSi Updater")
-        self.Updater.setObjectName("CenterBtn")
-        self.Updater.setCursor(Qt.CursorShape.PointingHandCursor)
-        self.Updater.clicked.connect(self.open_updater)
+        self.Market = QPushButton("PiSiM")
+        self.Market.setObjectName("CenterBtn")
+        self.Market.setCursor(Qt.CursorShape.PointingHandCursor)
+        self.Market.clicked.connect(self.open_market)
 
         self.Gaming = QPushButton("Install GameTools")
         self.Gaming.setObjectName("CenterBtn")
@@ -209,7 +209,7 @@ class WelcomeScreen(QMainWindow):
         self.layout.addWidget(self.subtitle_label)
 
         center_btn_layout.addWidget(self.Kaptan)
-        center_btn_layout.addWidget(self.Updater)
+        center_btn_layout.addWidget(self.Market)
         center_btn_layout.addWidget(self.Graphics)
 
         second_center_btn_layout.addWidget(self.Gaming)
@@ -366,8 +366,8 @@ class WelcomeScreen(QMainWindow):
         subprocess.Popen(["kaptan"])
 
     def open_gmi(self):
-        subprocess.Popen(["game-tools-installer"])
-
+        subprocess.check_call(["alacritty --command sudo pisi it lupus-gaming-applications"], shell=True)
+        
     def open_dnsc(self):
         subprocess.Popen(["dns-changer"])
 
@@ -377,11 +377,11 @@ class WelcomeScreen(QMainWindow):
     def install_winboat(self):
         subprocess.check_call(["alacritty --command sudo pisi it winboat"], shell=True)
 
-    def open_updater(self):
-        subprocess.Popen(["pisi-update"])
+    def open_market(self):
+        subprocess.Popen(["pisim"])
 
     def open_gci(self):
-        subprocess.Popen(["graphics-card-installer"])
+        subprocess.Popen(["graphics-driver-installer"])
 
     def add_printer(self):
         subprocess.Popen(["system-config-printer"])
