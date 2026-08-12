@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to LupuS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="main-container">
+    <div class="window-bar"></div>
+
+    <!-- Başlık / Logo Alanı -->
+    <div class="header-section" data-tauri-drag-region>
+      <div class="title-container">
+        <span class="title-text">Welcome to LupuS</span>
+      </div>
+      <div class="separator"></div>
+      <p class="subtitle">The Power of Freedom, The Spirit of Speed!</p>
+    </div>
+
+    <!-- İçerik & Buton Alanları -->
+    <div class="content-section">
+      <div class="separator"></div>
+      
+      <!-- 1. Satır Butonlar -->
+      <div class="btn-row">
+        <button class="center-btn" id="btn-kaptan">Kaptan</button>
+        <button class="center-btn" id="btn-pisim">PiSiM</button>
+        <button class="center-btn" id="btn-graphics">Install Graphics</button>
+      </div>
+
+      <!-- 2. Satır Butonlar -->
+      <div class="btn-row">
+        <button class="center-btn" id="btn-gaming">Install GameTools</button>
+        <button class="center-btn" id="btn-waydroid">Install Waydroid</button>
+        <button class="center-btn" id="btn-winboat">Install Winboat</button>
+      </div>
+
+      <!-- 3. Satır Butonlar -->
+      <div class="btn-row">
+        <button class="center-btn" id="btn-dns">DNS Changer</button>
+        <button class="center-btn" id="btn-printer">Add Printer</button>
+      </div>
+
+      <!-- Alt Satır: Otomatik Başlatma + Sosyal Medya -->
+      <div class="bottom-row">
+        <div class="left-space">
+            <label class="checkbox-container">
+                <input type="checkbox" id="autostart-cb" />
+                <span class="checkmark"></span>
+                Run on startup
+            </label>
+        </div>
+
+        <div class="social-btn-container">
+          <button class="social-btn" id="btn-website"><img src="icons/teknoanka.png" alt="Website" /></button>
+          <button class="social-btn" id="btn-github"><img src="icons/github.png" alt="GitHub" /></button>
+          <button class="social-btn" id="btn-youtube"><img src="icons/youtube.png" alt="YouTube" /></button>
+          <button class="social-btn" id="btn-x"><img src="icons/x.png" alt="X" /></button>
+        </div>
+
+        <div class="right-space"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

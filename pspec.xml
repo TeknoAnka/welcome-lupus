@@ -1,0 +1,43 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PISI SYSTEM "https://www.pisilinux.org/projeler/pisi/pisi-spec.dtd">
+<PISI>
+    <Source>
+        <Name>lupus-hello</Name>
+        <Homepage>https://github.com/TeknoAnka/lupus-hello</Homepage>
+        <Packager>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Packager>
+        <License>GPLv3</License>
+        <IsA>app:gui</IsA>
+        <Summary>LupuS Hello</Summary>
+        <Description>LupuS Hello is a simple hello world application built with Rust and Tauri.</Description>
+    </Source>
+
+    <Package>
+        <Name>lupus-hello</Name>
+        <RuntimeDependencies>
+            <Dependency>dns-changer</Dependency>
+            <Dependency>pisidi</Dependency>
+            <Dependency>kaptan</Dependency>
+            <Dependency>alacritty</Dependency>
+            <Dependency>pisim</Dependency>
+        </RuntimeDependencies>
+        <Files>
+            <Path fileType="executable">/usr/bin/lupus-hello</Path>
+            <Path fileType="data">/usr/share/applications/lupus-hello.desktop</Path>
+            <Path fileType="data">/usr/share/icons/hicolor/128x128/apps/lupus-hello.png</Path>
+            <Path fileType="doc">/usr/share/doc/lupus-hello</Path>
+        </Files>
+    </Package>
+
+    <History>
+        <Update release="1">
+            <Date>2026-08-12</Date>
+            <Version>2.0.0</Version>
+            <Comment>Rust and Tauri port release</Comment>
+            <Name>Solzic0</Name>
+            <Email>solzic0@yandex.com</Email>
+        </Update>
+    </History>
+</PISI>

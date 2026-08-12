@@ -1,0 +1,16 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Lupus Hello
+Name[tr]=Merhaba LupuS
+GenericName=Lupus Hello
+GenericName[tr]=Merhaba LupuS
+Comment=A simple hello world application for LupuS
+Comment[tr]=LupuS için başlangıç ekranı
+Exec=lupus-hello
+Icon=lupus-hello
+Terminal=false
+Categories=Utility;LupuS;System;
+Keywords=lupus;hello;
+StartupNotify=true
+StartupWMClass=lupus-hello

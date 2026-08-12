@@ -1,0 +1,30 @@
+{
+  "$schema": "https://raw.githubusercontent.com/tauri-apps/tauri/dev/crates/tauri-config-schema/schema.json",
+  "productName": "LupuS Hello",
+  "version": "2.0.0",
+  "identifier": "com.teknoanka.lupus-hello",
+  "build": {
+    "frontendDist": "../ui"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "LupuS Hello",
+        "width": 1000,
+        "height": 600,
+        "resizable": false,
+        "decorations": true,
+        "transparent": true,
+        "center": true
+      }
+    ]
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+        "icons/lupus.png"
+    ]
+  }
+}
