@@ -39,8 +39,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 4. Otomatik Başlatma (Autostart)
   const autostartCb = document.getElementById('autostart-cb');
-  if (autostartCb && tauri.plugin && tauri.plugin.autostart) {
-    const { enable, disable, isEnabled } = tauri.plugin.autostart;
+  if (autostartCb && tauri.autostart) {
+    const { enable, disable, isEnabled } = tauri.autostart;
 
     isEnabled().then(enabled => {
       autostartCb.checked = enabled;
