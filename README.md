@@ -11,9 +11,10 @@ LupuS Hello is a simple hello world application built with Rust and Tauri.
 ---
 
 ## 🚀 Building & Install
+
 ```bash
 # 1. Clone Repository
-git clone https://github.com/TeknoAnka/lupus-hello
+git clone https://github.com/Antolun/lupus-hello
 cd lupus-hello
 
 # 2. Start Build

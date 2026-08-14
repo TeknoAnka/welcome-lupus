@@ -2,7 +2,7 @@
 name = "lupus-hello"
 version = "0.1.0"
 description = "Welcome to LupuS"
-authors = ["TeknoAnka"]
+authors = ["Solzic0 <solzic0@yandex.com>", "Antolun <admin@antolun.com>"]
 edition = "2021"
 
 # Bu bloğu ekleyin:

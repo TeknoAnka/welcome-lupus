@@ -3,7 +3,7 @@
 <PISI>
     <Source>
         <Name>lupus-hello</Name>
-        <Homepage>https://github.com/TeknoAnka/lupus-hello</Homepage>
+        <Homepage>https://github.com/Antolun/lupus-hello</Homepage>
         <Packager>
             <Name>Solzic0</Name>
             <Email>solzic0@yandex.com</Email>

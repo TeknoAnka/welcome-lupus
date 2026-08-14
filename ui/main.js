@@ -32,10 +32,10 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('btn-winboat')?.addEventListener('click', () => runInTerminal('sudo pisi it winboat'));
 
   // 3. Sosyal Medya Linkleri
-  document.getElementById('btn-website')?.addEventListener('click', () => window.open('https://www.teknoanka.com', '_blank'));
-  document.getElementById('btn-github')?.addEventListener('click', () => window.open('https://github.com/TeknoAnka', '_blank'));
-  document.getElementById('btn-x')?.addEventListener('click', () => window.open('https://x.com/TeknoAnka', '_blank'));
-  document.getElementById('btn-youtube')?.addEventListener('click', () => window.open('https://www.youtube.com/@TeknoAnkaOfficial', '_blank'));
+  document.getElementById('btn-website')?.addEventListener('click', () => window.open('https://www.antolun.com', '_blank'));
+  document.getElementById('btn-github')?.addEventListener('click', () => window.open('https://github.com/Antolun', '_blank'));
+  document.getElementById('btn-x')?.addEventListener('click', () => window.open('https://x.com/AntolunOfficial', '_blank'));
+  document.getElementById('btn-youtube')?.addEventListener('click', () => window.open('https://www.youtube.com/@Antolun', '_blank'));
 
   // 4. Otomatik Başlatma (Autostart)
   const autostartCb = document.getElementById('autostart-cb');
