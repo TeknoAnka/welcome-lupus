@@ -22,14 +22,14 @@ window.addEventListener('DOMContentLoaded', () => {
 
   // 2. Uygulama Butonları
   document.getElementById('btn-kaptan')?.addEventListener('click', () => runCmd('kaptan'));
-  document.getElementById('btn-pisim')?.addEventListener('click', () => runCmd('pisim'));
-  document.getElementById('btn-graphics')?.addEventListener('click', () => runCmd('pisidi'));
+  document.getElementById('btn-lsc')?.addEventListener('click', () => runCmd('lupus-software-center'));
+  document.getElementById('btn-graphics')?.addEventListener('click', () => runCmd('luppo-driver-installer'));
   document.getElementById('btn-dns')?.addEventListener('click', () => runCmd('dns-changer'));
   document.getElementById('btn-printer')?.addEventListener('click', () => runCmd('system-config-printer'));
 
-  document.getElementById('btn-gaming')?.addEventListener('click', () => runInTerminal('sudo pisi it lupus-gaming-packages'));
-  document.getElementById('btn-waydroid')?.addEventListener('click', () => runInTerminal('sudo pisi it waydroid'));
-  document.getElementById('btn-winboat')?.addEventListener('click', () => runInTerminal('sudo pisi it winboat'));
+  document.getElementById('btn-gaming')?.addEventListener('click', () => runInTerminal('sudo luppo it lupus-gaming-packages'));
+  document.getElementById('btn-waydroid')?.addEventListener('click', () => runInTerminal('sudo luppo it waydroid'));
+  document.getElementById('btn-winboat')?.addEventListener('click', () => runInTerminal('sudo luppo it winboat'));
 
   // 3. Sosyal Medya Linkleri
   document.getElementById('btn-website')?.addEventListener('click', () => window.open('https://www.antolun.com', '_blank'));

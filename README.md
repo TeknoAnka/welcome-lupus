@@ -6,7 +6,7 @@ LupuS Hello is a simple hello world application built with Rust and Tauri.
 
 - **Rust & Cargo** (`>= 1.75`)
 - **Tauri v2 CLI** (`cargo install tauri-cli`)
-- **System Libraries (Linux)**: `pisim`, `pisidi`, `kaptan`, `alacritty`, `dns-changer`
+- **System Libraries (Linux)**: `lupus-software-center`, `luppo-driver-installer`, `kaptan`, `alacritty`, `dns-changer`
 
 ---
 
@@ -18,11 +18,11 @@ git clone https://github.com/Antolun/lupus-hello
 cd lupus-hello
 
 # 2. Start Build
-chmod +x ./build-pisi.sh
-sudo ./build-pisi.sh
+chmod +x ./build-luppo.sh
+sudo ./build-luppo.sh
 
 # Install Package
-sudo pisi it ./lupus-hello-*-x86_64.pisi
+sudo luppo it ./lupus-hello-*-x86_64.luppo
 ```
 
 ---
